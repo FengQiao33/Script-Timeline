@@ -4,6 +4,7 @@
   "private": true,
   "description": "直播间脚本时间轴：生成开场-互动-转化-收尾脚本卡与倒计时提示的纯静态站点",
   "scripts": {
+    "build": "node -e \"console.log('Build complete: Static site ready for deployment')\"",
     "dev": "npx serve -s . -l 5173",
     "start": "npx serve -s .",
     "preview": "npx http-server -c-1 -p 4173 ."
