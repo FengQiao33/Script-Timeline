@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="直播间脚本时间轴：一键生成开场-互动-转化-收尾脚本卡与倒计时提示" />
+    <title>直播间脚本时间轴</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <div class="brand">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <div class="brand__text">
+            <div class="brand__title">直播间脚本时间轴</div>
+            <div class="brand__subtitle">开场–互动–转化–收尾 · 脚本卡 · 倒计时提示</div>
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <button class="btn btn--ghost" id="btnExample" type="button">填充示例</button>
+          <button class="btn btn--ghost" id="btnReset" type="button">重置</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main">
+      <section class="panel">
+        <div class="panel__header">
+          <h2 class="panel__title">配置</h2>
+          <p class="panel__desc">设置直播开始时间、总时长与四段结构，自动生成时间轴脚本卡和倒计时提示。</p>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label class="label" for="startAt">直播开始时间</label>
+            <input class="input" id="startAt" type="datetime-local" />
+            <div class="hint">用于计算每张脚本卡的“绝对时间点”。不填则仅显示“相对时间”。</div>
+          </div>
+          <div class="field">
+            <label class="label" for="totalMinutes">总时长（分钟）</label>
+            <input class="input" id="totalMinutes" type="number" min="10" max="600" step="1" value="90" />
+            <div class="hint">用于校验各段时长之和，并生成收尾倒计时。</div>
+          </div>
+        </div>
+
+        <div class="segWrap" id="segWrap" aria-label="脚本结构配置"></div>
+
+        <div class="panel__footer">
+          <div class="row">
+            <button class="btn btn--primary" id="btnGenerate" type="button">生成脚本卡</button>
+            <button class="btn" id="btnDownload" type="button">下载脚本 TXT</button>
+          </div>
+          <div class="status" id="status"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header panel__header--tight">
+          <h2 class="panel__title">倒计时提示</h2>
+          <p class="panel__desc">按“下一节点”显示倒计时，适合直播过程中随时瞄一眼。</p>
+        </div>
+        <div class="countdown">
+          <div class="countdown__card">
+            <div class="countdown__label">下一节点</div>
+            <div class="countdown__title" id="nextTitle">未生成</div>
+            <div class="countdown__meta" id="nextMeta">请先生成脚本卡</div>
+          </div>
+          <div class="countdown__timer" id="timer">--:--</div>
+          <div class="row row--wrap">
+            <button class="btn btn--ghost" id="btnStartTimer" type="button">开始倒计时</button>
+            <button class="btn btn--ghost" id="btnStopTimer" type="button">暂停</button>
+            <button class="btn btn--ghost" id="btnJumpNow" type="button">以当前时间为开播</button>
+          </div>
+          <div class="hint">提示：倒计时依据“直播开始时间”与生成的时间轴计算；若现场开播延迟，可点“以当前时间为开播”。</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header panel__header--tight">
+          <h2 class="panel__title">时间轴脚本卡</h2>
+          <p class="panel__desc">每张卡包含：时间点、目标、话术、互动、转化动作、收尾提示；支持一键复制。</p>
+        </div>
+        <div class="cards" id="cards"></div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__left">
+           
+          </div>
+          <div class="footer__right">
+            <img class="esa-badge" src="./assets/esa-pages-badge.svg" alt="ESA Pages" />
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
+

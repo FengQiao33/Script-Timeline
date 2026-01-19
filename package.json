@@ -1,0 +1,22 @@
+{
+  "name": "script-timeline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "直播间脚本时间轴：生成开场-互动-转化-收尾脚本卡与倒计时提示的纯静态站点",
+  "scripts": {
+    "dev": "npx serve -s . -l 5173",
+    "start": "npx serve -s .",
+    "preview": "npx http-server -c-1 -p 4173 ."
+  },
+  "keywords": [
+    "live",
+    "timeline",
+    "script",
+    "countdown",
+    "esa-pages",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

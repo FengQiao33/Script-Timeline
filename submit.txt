@@ -1,0 +1,9 @@
+作品访问URL地址：
+（在阿里云 ESA Pages 部署后填写，例如：https://xxxx.pages.dev 或你绑定的自定义域名）
+
+Github仓库地址：
+（填写你的公开仓库地址，例如：https://github.com/yourname/script-timeline）
+
+作品说明：
+本作品为“直播间脚本时间轴”工具，可生成直播开场–互动–转化–收尾四段脚本卡，并提供下一节点倒计时提示，帮助主播与运营快速对齐节奏与转化动作。
+
