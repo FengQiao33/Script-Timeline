@@ -1,0 +1,12 @@
+{
+  "name": "script-timeline",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "assets": {
+    "directory": "./dist",
+    "notFoundStrategy": "singlePageApplication"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
